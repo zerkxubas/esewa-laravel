@@ -3,13 +3,13 @@
 namespace Zerkbro\EsewaLaravel;
 
 use Exception;
-use EsewaConfig;
+use Zerkbro\EsewaLaravel\EsewaConfig as Config;
 
 final class Client
 {
-    private EsewaConfig $config;
+    private Config $config;
 
-    public function __construct(EsewaConfig $config)
+    public function __construct(Config $config)
     {
         $this->config = $config;
     }
