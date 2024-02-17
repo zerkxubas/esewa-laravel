@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Zerkbro\EsewaLaravel;
+namespace Zerkxubas\EsewaLaravel;
 
 final class EsewaConfig
 {

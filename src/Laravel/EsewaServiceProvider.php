@@ -1,10 +1,10 @@
 <?php
 
-namespace Zerkbro\EsewaLaravel\Laravel;
+namespace Zerkxubas\EsewaLaravel\Laravel;
 
 use Illuminate\Support\ServiceProvider;
 
-use Zerkbro\EsewaLaravel\Facades\Esewa;
+use Zerkxubas\EsewaLaravel\Facades\Esewa;
 
 class EsewaServiceProvider extends ServiceProvider
 {

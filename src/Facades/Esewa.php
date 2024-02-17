@@ -1,6 +1,6 @@
 <?php
 
-namespace Zerkbro\EsewaLaravel\Facades;
+namespace Zerkxubas\EsewaLaravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

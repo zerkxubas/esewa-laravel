@@ -1,5 +1,5 @@
 {
-    "name": "zerkbro/esewa-laravel",
+    "name": "zerkxubas/esewa-laravel",
     "description": "This package makes the integration of Esewa payment gateway easier.",
     "type": "library",
     "require-dev": {
@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Zerkbro\\EsewaLaravel\\": "src/"
+            "Zerkxubas\\EsewaLaravel\\": "src/"
         }
     },
     "authors": [
@@ -33,7 +33,7 @@
     "extra": {
         "laravel": {
           "providers": [
-            "Zerkbro\\EsewaLaravel\\Laravel\\EsewaServiceProvider"
+            "Zerkxubas\\EsewaLaravel\\Laravel\\EsewaServiceProvider"
           ]
         }
     }

@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Zerkbro\EsewaLaravel;
+namespace Zerkxubas\EsewaLaravel;
 
 use Exception;
-use Zerkbro\EsewaLaravel\EsewaConfig as Config;
+use Zerkxubas\EsewaLaravel\EsewaConfig as Config;
 
 final class Client
 {
