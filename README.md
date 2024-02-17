@@ -32,6 +32,7 @@ ESEWA_MERCHANT_CODE=EPAYTEST
 ESEWA_SUCCESS_URL="http://localhost/order/success"
 ESEWA_FAILURE_URL="http://localhost/payment/failure"
 ```
+**NOTE:** i prefer to use the Sail environment for development so the url seems to be without any port here in my .env but you can specify any url which works for you.
 
 ## Quick Examples
 
@@ -84,6 +85,10 @@ if ($paymentStatus) {
     // Success payment.
 }
 ```
+
+## License
+
+This package is open-sourced & free to use licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Additional
 Reading esewa official documentation is highly recommended as there might be new changes in future so its crucial for a developer to be updated with the latest changes.
