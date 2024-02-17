@@ -17,7 +17,7 @@ class EsewaServiceProvider extends ServiceProvider
     {
         // Publishes the configuration file
         $this->publishes([
-            __DIR__.'/../config/esewa.php' => config_path('esewa.php'),
+            __DIR__.'/../../config/esewa.php' => config_path('esewa.php'),
         ], 'esewa');
     }
 
