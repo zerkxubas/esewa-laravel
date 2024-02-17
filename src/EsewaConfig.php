@@ -28,8 +28,8 @@ final class EsewaConfig
 
     public function __construct()
     {
-        $this->apiUrl = $this->getApiUrl();
         $this->esewaDebugMode = config('esewa.debug_mode', true);
+        $this->apiUrl = $this->getApiUrl();
         $this->merchantCode = config('esewa.merchant_code', 'EPAYTEST');
         $this->successUrl = config('esewa.success_url', 'http://localhost/order/success');
         $this->failureUrl = config('esewa.failure_url', 'http://localhost/payment/failure');
