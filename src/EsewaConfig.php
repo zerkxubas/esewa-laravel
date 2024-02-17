@@ -28,8 +28,8 @@ final class EsewaConfig
 
     public function __construct()
     {
-        $this->esewaDebugMode = config('esewa.debug_mode', true);
         $this->apiUrl = $this->getApiUrl();
+        $this->esewaDebugMode = config('esewa.debug_mode', true);
         $this->merchantCode = config('esewa.merchant_code', 'EPAYTEST');
         $this->successUrl = config('esewa.success_url', 'http://localhost/order/success');
         $this->failureUrl = config('esewa.failure_url', 'http://localhost/payment/failure');
@@ -38,11 +38,7 @@ final class EsewaConfig
     private function getApiUrl(): string
     {
         $defaultApiUrl = 'https://uat.esewa.com.np';
-        if (config('esewa.debug_mode', true)) {
-            return $defaultApiUrl;
-        } else {
-            return config('esewa.api_url', $defaultApiUrl);
-        }
+        return $this->esewaDebugMode ? $defaultApiUrl : $this->apiUrl;
     }
 
 }

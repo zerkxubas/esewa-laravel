@@ -17,13 +17,13 @@ final class Client
     /**
      * This method creates the form data for eSewa server.
      */
-    public function prepareFormData(string $productId, float $amount, float $taxAmount, float $serviceAmount = 0.0, float $deliveryAmount = 0.0): array
+    public function prepareFormData(string $paymentID, float $amount, float $taxAmount, float $serviceAmount = 0.0, float $deliveryAmount = 0.0): array
     {
         return [
             'scd' => $this->config->merchantCode,
             'su' => $this->config->successUrl,
-            'fu' => $this->config->failureUrl . '?' . http_build_query(['pid' => $productId]),
-            'pid' => $productId,
+            'fu' => $this->config->failureUrl . '?' . http_build_query(['pid' => $paymentID]),
+            'pid' => $paymentID,
             'amt' => $amount,
             'txAmt' => $taxAmount,
             'psc' => $serviceAmount,
@@ -51,9 +51,9 @@ final class Client
     /**
      * This method processes the payment by preparing form data and generating form HTML.
      */
-    public function checkout(string $productId, float $amount, float $taxAmount, float $serviceAmount = 0.0, float $deliveryAmount = 0.0): string
+    public function checkout(string $paymentID, float $amount, float $taxAmount, float $serviceAmount = 0.0, float $deliveryAmount = 0.0): string
     {
-        $formData = $this->prepareFormData($productId, $amount, $taxAmount, $serviceAmount, $deliveryAmount);
+        $formData = $this->prepareFormData($paymentID, $amount, $taxAmount, $serviceAmount, $deliveryAmount);
         return $this->generateFormHtml($formData);
     }
 
@@ -61,7 +61,7 @@ final class Client
      * This method verifies the payment using the reference ID.
      * @throws Exception
      */
-    public function verifyPayment(string $referenceId, string $productId, float $amount): bool
+    public function verifyPayment(string $referenceId, string $paymentID, float $amount): bool
     {
         // Initialize a cURL handle
         $ch = curl_init();
@@ -86,7 +86,7 @@ final class Client
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
             'scd' => $this->config->merchantCode,
             'rid' => $referenceId,
-            'pid' => $productId,
+            'pid' => $paymentID,
             'amt' => $amount,
         ]));
 
