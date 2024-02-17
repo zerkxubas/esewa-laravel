@@ -2,12 +2,13 @@
 
 namespace Zerkxubas\EsewaLaravel\Facades;
 
+use Zerkxubas\EsewaLaravel\Client;
 use Illuminate\Support\Facades\Facade;
 
 class Esewa extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'esewa';
+        return Client::class;
     }
 }

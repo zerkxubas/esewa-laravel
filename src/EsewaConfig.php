@@ -24,17 +24,25 @@ final class EsewaConfig
      */
     public string $failureUrl;
 
+    public bool $esewaDebugMode;
+
     public function __construct()
     {
-        $this->apiUrl = config('esewa.api_url');
-        $this->merchantCode = config('esewa.merchant_code');
-        $this->successUrl = config('esewa.success_url');
-        $this->failureUrl = config('esewa.failure_url');
-        $this->esewaDebugMode = config('esewa.debug_mode')
+        $this->esewaDebugMode = config('esewa.debug_mode', true);
+        $this->apiUrl = $this->getApiUrl();
+        $this->merchantCode = config('esewa.merchant_code', 'EPAYTEST');
+        $this->successUrl = config('esewa.success_url', 'http://localhost/order/success');
+        $this->failureUrl = config('esewa.failure_url', 'http://localhost/payment/failure');
+    }
 
-        // verifying ESEWA payment is in development or not.
-        if (strtoupper($this->merchantCode) !== 'EPAYTEST' && $this->esewaDebugMode !== true) {
-            $this->apiUrl = 'https://esewa.com.np';
+    private function getApiUrl(): string
+    {
+        $defaultApiUrl = 'https://uat.esewa.com.np';
+        if (config('esewa.debug_mode', true)) {
+            return $defaultApiUrl;
+        } else {
+            return config('esewa.api_url', $defaultApiUrl);
         }
     }
+
 }

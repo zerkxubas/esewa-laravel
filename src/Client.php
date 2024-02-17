@@ -51,7 +51,7 @@ final class Client
     /**
      * This method processes the payment by preparing form data and generating form HTML.
      */
-    public function process(string $productId, float $amount, float $taxAmount, float $serviceAmount = 0.0, float $deliveryAmount = 0.0): string
+    public function checkout(string $productId, float $amount, float $taxAmount, float $serviceAmount = 0.0, float $deliveryAmount = 0.0): string
     {
         $formData = $this->prepareFormData($productId, $amount, $taxAmount, $serviceAmount, $deliveryAmount);
         return $this->generateFormHtml($formData);
@@ -61,7 +61,7 @@ final class Client
      * This method verifies the payment using the reference ID.
      * @throws Exception
      */
-    public function verify(string $referenceId, string $productId, float $amount): bool
+    public function verifyPayment(string $referenceId, string $productId, float $amount): bool
     {
         // Initialize a cURL handle
         $ch = curl_init();
